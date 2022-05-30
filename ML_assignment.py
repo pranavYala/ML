@@ -23,7 +23,7 @@ ex_data = pd.read_csv('Example_Technical_Skills.csv', usecols=['Technology Skill
 for i in range(len(ex_data['Technology Skills'])):
     ex_data['Technology Skills'][i] = ex_data['Technology Skills'][i].lower()
 
-ex_data['Technology Skills'] = ex_data['Technology Skills'].apply(lambda x: re.sub('[%s]' % re.escape(string.punctuation), '' , x))
+ex_data['Technology Skills'] = ex_data['Technology Skills'].apply(lambda x: re.sub('[%s]' % re.escape(string.punctuation), ' ' , x))
 
 stop_words = set(stopwords.words('english'))
 stop_words.add('subject')
@@ -56,7 +56,7 @@ for i in range(len(data['RAW DATA'])):
 data = data.drop_duplicates(subset='RAW DATA')
 or_data = data
 
-data['RAW DATA'] = data['RAW DATA'].apply(lambda x: re.sub('[%s]' % re.escape(string.punctuation), '' , x))
+data['RAW DATA'] = data['RAW DATA'].apply(lambda x: re.sub('[%s]' % re.escape(string.punctuation), ' ' , x))
 
 data['RAW DATA'] = data['RAW DATA'].apply(lambda x: remove_stopwords(x))
 
